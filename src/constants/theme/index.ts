@@ -4,7 +4,7 @@ export const palette = {
   blue: '#2B44FF',
   blue2: '#1F28CF',
 
-  error: 'FF4133',
+  error: '#FF4133',
 
   black: '#242833',
   white: '#FFFFFF',
@@ -42,8 +42,27 @@ const theme = createTheme({
   },
   textVariants: {
     bodyText: {
-      color: 'black',
+      color: 'mainBackground',
       fontSize: 18,
+    },
+    button: {
+      fontWeight: 'bold',
+      fontSize: 20,
+      disabled: {},
+      // fontFamily: 'Telex-Regular',
+    },
+  },
+  buttonVariants: {
+    primary: {
+      color: palette.blue,
+      height: 48,
+      textColor: palette.white,
+      // fontFamily: 'Telex-Regular',
+      fontSize: 14,
+      borderWidth: undefined,
+      disabled: {
+        // color: palette.ash,
+      },
     },
   },
   inputVariants: {},

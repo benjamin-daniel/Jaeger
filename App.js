@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
 import {ThemeProvider} from '@shopify/restyle';
-import {Input, Text} from 'components';
+import {Input, Text, Button} from 'components';
 
 import theme from 'constants/theme';
 
@@ -12,6 +12,7 @@ const App = () => {
         <SafeAreaView>
           <Input />
           <Text>Omo</Text>
+          <Button text="hey" />
         </SafeAreaView>
       </ThemeProvider>
     </>
