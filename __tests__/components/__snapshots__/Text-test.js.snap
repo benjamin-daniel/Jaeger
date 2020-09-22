@@ -5,7 +5,7 @@ exports[`Text component test renders correctly 1`] = `
   style={
     Array [
       Object {
-        "color": "#FFFFFF",
+        "color": "#242833",
         "display": "flex",
         "fontSize": 18,
       },
