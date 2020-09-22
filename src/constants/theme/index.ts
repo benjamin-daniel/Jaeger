@@ -1,9 +1,22 @@
 import {createTheme} from '@shopify/restyle';
 
-export const palette = {};
+export const palette = {
+  blue: '#2B44FF',
+  blue2: '#1F28CF',
+
+  black: '#242833',
+  white: '#FFFFFF',
+};
 
 const theme = createTheme({
-  colors: {},
+  colors: {
+    main: palette.blue,
+    mainDark: palette.blue2,
+
+    mainBackground: palette.white,
+
+    black: palette.black,
+  },
   spacing: {
     /* eslint-disable id-length */
     xxs: 3,
