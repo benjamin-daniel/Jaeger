@@ -47,7 +47,9 @@ export const OnBoarding = () => {
           <OnBoardContainer>
             <OnBoarding4 />
             <Box marginVertical="m">
-              <Text fontSize={20}>Enjoy the App</Text>
+              <Text fontSize={20} textAlign="center">
+                {'I dey Serious.\nBut Enjoy the App'}
+              </Text>
             </Box>
           </OnBoardContainer>
         </Swiper>
