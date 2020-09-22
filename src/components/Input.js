@@ -53,7 +53,7 @@ export const Input = ({
     <Box marginVertical={nospace ? 'none' : 's'}>
       <Box
         borderWidth={1}
-        borderColor={touched && error ? 'error' : 'greyish'}
+        borderColor={touched && error ? 'error' : 'black'}
         flexDirection="row"
         alignItems="center"
         height={40}

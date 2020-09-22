@@ -40,7 +40,12 @@ const theme = createTheme({
   breakpoints: {
     phone: 0,
   },
-  textVariants: {},
+  textVariants: {
+    bodyText: {
+      color: 'black',
+      fontSize: 18,
+    },
+  },
   inputVariants: {},
   maxContentWidth: 500,
 });
