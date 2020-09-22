@@ -32,7 +32,9 @@
     "eslint": "^7.9.0",
     "jest": "^26.4.2",
     "metro-react-native-babel-preset": "^0.63.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "typescript": "^4.02",
+    "ts-jest": "^26.0.0"
   },
   "jest": {
     "preset": "react-native"
