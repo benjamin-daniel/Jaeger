@@ -41,8 +41,9 @@ const theme = createTheme({
     phone: 0,
   },
   textVariants: {
+    none: {},
     bodyText: {
-      color: 'mainBackground',
+      color: 'black',
       fontSize: 18,
     },
     button: {
