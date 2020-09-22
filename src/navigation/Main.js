@@ -1,21 +1,15 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+// import {createStackNavigator} from '@react-navigation/stack';
 
-import {Input, Text, Button} from 'components';
-import Feather from 'react-native-vector-icons/Feather';
-import {SafeAreaView} from 'react-native';
+import AppNav from './App.navigation';
+import AuthNav from './Auth.navigation';
 
 const Main = () => {
+  const signedIn = false;
   return (
     <NavigationContainer>
-      {/* Rest of your app code */}
-      <SafeAreaView>
-        <Input />
-        <Text>Omo</Text>
-        <Button text="hey" />
-        <Feather size={20} name="eye" />
-        <Text>hsesdsdy</Text>
-      </SafeAreaView>
+      {signedIn ? <AppNav /> : <AuthNav />}
     </NavigationContainer>
   );
 };
