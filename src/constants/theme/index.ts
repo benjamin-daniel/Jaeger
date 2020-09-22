@@ -56,7 +56,7 @@ const theme = createTheme({
   buttonVariants: {
     primary: {
       color: palette.blue,
-      height: 48,
+      height: 50,
       textColor: palette.white,
       // fontFamily: 'Telex-Regular',
       fontSize: 14,
