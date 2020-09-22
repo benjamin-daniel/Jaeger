@@ -9,12 +9,8 @@ const AuthNav = createStackNavigator();
 
 const AuthStack = () => {
   return (
-    <AuthNav.Navigator>
-      <AuthNav.Screen
-        name="OnBoarding"
-        component={OnBoarding}
-        options={{headerShown: false}}
-      />
+    <AuthNav.Navigator screenOptions={{headerShown: false}}>
+      <AuthNav.Screen name="OnBoarding" component={OnBoarding} />
     </AuthNav.Navigator>
   );
 };
