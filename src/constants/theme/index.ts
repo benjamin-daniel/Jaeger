@@ -4,6 +4,8 @@ export const palette = {
   blue: '#2B44FF',
   blue2: '#1F28CF',
 
+  error: 'FF4133',
+
   black: '#242833',
   white: '#FFFFFF',
 };
@@ -13,9 +15,10 @@ const theme = createTheme({
     main: palette.blue,
     mainDark: palette.blue2,
 
-    mainBackground: palette.white,
+    error: palette.error,
 
     black: palette.black,
+    mainBackground: palette.white,
   },
   spacing: {
     /* eslint-disable id-length */
