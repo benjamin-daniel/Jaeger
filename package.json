@@ -52,7 +52,8 @@
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "setupFiles": [
-      "./node_modules/react-native-gesture-handler/jestSetup.js"
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "./mock.js"
     ]
   }
 }
