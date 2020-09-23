@@ -2,14 +2,13 @@
  * @format
  */
 
+import 'react-native-gesture-handler';
 import 'react-native';
 import React from 'react';
 import {Dimensions} from 'react-native';
-import App, {Container} from '../../App';
+import {Container} from '../../App';
 
 import {Text} from 'components';
-import theme from 'constants/theme';
-import {ThemeProvider} from '@shopify/restyle';
 import renderer from 'react-test-renderer';
 
 jest.mock('react-native/Libraries/Utilities/Dimensions', () => {
