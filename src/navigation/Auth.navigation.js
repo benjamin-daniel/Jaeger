@@ -11,15 +11,12 @@ const AuthNav = createStackNavigator();
 
 const AuthStack = ({Onboarded = false}) => {
   return (
-    <AuthNav.Navigator screenOptions={{headerShown: false}}>
-      {!Onboarded ? (
-        <AuthNav.Screen name="OnBoarding" component={OnBoarding} />
-      ) : (
-        <>
-          <AuthNav.Screen name="Register" component={Register} />
-          <AuthNav.Screen name="Login" component={Login} />
-        </>
-      )}
+    <AuthNav.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName={!Onboarded ? 'OnBoarding' : 'Login'}>
+      <AuthNav.Screen name="OnBoarding" component={OnBoarding} />
+      <AuthNav.Screen name="Register" component={Register} />
+      <AuthNav.Screen name="Login" component={Login} />
     </AuthNav.Navigator>
   );
 };
