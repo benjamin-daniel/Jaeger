@@ -7,9 +7,9 @@ import 'react-native';
 import React from 'react';
 import {Dimensions} from 'react-native';
 import {Container} from '../../App';
-import {Text as RNText} from 'react-native';
+import {View as RNView} from 'react-native';
 
-import {Text} from 'components';
+import {Box} from 'components';
 import renderer from 'react-test-renderer';
 
 jest.mock('react-native/Libraries/Utilities/Dimensions', () => {
@@ -22,7 +22,7 @@ jest.mock('react-native/Libraries/Utilities/Dimensions', () => {
   };
 });
 
-describe('Text component test', () => {
+describe('Box component test', () => {
   beforeEach(() => {
     Dimensions.addEventListener.mockClear();
   });
@@ -31,7 +31,7 @@ describe('Text component test', () => {
     const tree = await renderer
       .create(
         <Container>
-          <Text>Many</Text>
+          <Box>Many</Box>
         </Container>,
       )
       .toJSON();
@@ -41,24 +41,13 @@ describe('Text component test', () => {
   it('passes styles based on the given props', async () => {
     const {root} = renderer.create(
       <Container>
-        <Text variant="none" opacity={0.5}>
+        <Box variant="none" opacity={0.5}>
           hey
-        </Text>
+        </Box>
       </Container>,
     );
-    await expect(root.findByType(Text).props).toEqual(
+    await expect(root.findByType(Box).props).toEqual(
       expect.objectContaining({opacity: 0.5}),
     );
-  });
-
-  it('passes default style', async () => {
-    const {root} = renderer.create(
-      <Container>
-        <Text />
-      </Container>,
-    );
-    await expect(root.findByType(RNText).props.style).toEqual([
-      {color: '#242833', fontSize: 18, display: 'flex'},
-    ]);
   });
 });

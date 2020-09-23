@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box component test renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "display": "flex",
+      },
+    ]
+  }
+>
+  Many
+</View>
+`;
