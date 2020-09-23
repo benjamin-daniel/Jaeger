@@ -9,7 +9,7 @@ export const Home = () => {
       <ScrollView contentContainerStyle={styles.container}>
         <Box>
           <Text fontSize={20}>Welcome Daniel</Text>
-          <Text fontSize={14}>Inshallah and Vibes</Text>
+          <Text fontSize={14}>Vibes and Inshallah</Text>
         </Box>
 
         <Box marginTop="xl"></Box>
