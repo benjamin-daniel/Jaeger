@@ -3,14 +3,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 // import {createNativeStackNavigator} from 'react-native-screens/native-stack';
 
-import {OnBoarding} from 'screens/OnBoarding';
+import {Home} from 'screens/Home';
 
 const AppNav = createStackNavigator();
 
 const AppStack = () => {
   return (
     <AppNav.Navigator>
-      <AppNav.Screen name="Home" component={OnBoarding} />
+      <AppNav.Screen name="Home" component={Home} />
     </AppNav.Navigator>
   );
 };

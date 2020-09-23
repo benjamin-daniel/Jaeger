@@ -6,7 +6,7 @@ import AppNav from './App.navigation';
 import AuthNav from './Auth.navigation';
 
 const Main = () => {
-  const signedIn = false;
+  const signedIn = true;
   return (
     <NavigationContainer>
       {signedIn ? <AppNav /> : <AuthNav />}
