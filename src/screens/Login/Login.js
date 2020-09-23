@@ -41,7 +41,7 @@ export const Login = () => {
   });
 
   return (
-    <Box flex={1} paddingHorizontal="m" backgroundColor="deep">
+    <Box flex={1} paddingHorizontal="m">
       <SafeAreaView style={styles.SafeAreaView}>
         <ScrollView>
           <Box marginVertical="xl">
