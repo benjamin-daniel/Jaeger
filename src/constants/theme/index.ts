@@ -10,6 +10,8 @@ export const palette = {
   white: '#FFFFFF',
 
   deep: '#8991DC',
+
+  dirtyRed: '#E3DBDB',
 };
 
 const theme = createTheme({
@@ -22,6 +24,7 @@ const theme = createTheme({
 
     black: palette.black,
     mainBackground: palette.white,
+    dirtyRed: palette.dirtyRed,
   },
   spacing: {
     /* eslint-disable id-length */

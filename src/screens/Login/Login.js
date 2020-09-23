@@ -22,6 +22,9 @@ export const Login = ({navigation}) => {
   const register = () => {
     navigation.navigate('Register');
   };
+  const toHome = () => {
+    navigation.navigate('Register');
+  };
   const {
     errors,
     values,
@@ -39,7 +42,7 @@ export const Login = ({navigation}) => {
     onSubmit: async (values) => {
       console.log({values});
     },
-    validationSchema: verifyLoginSchema,
+    // validationSchema: verifyLoginSchema,
   });
 
   return (
