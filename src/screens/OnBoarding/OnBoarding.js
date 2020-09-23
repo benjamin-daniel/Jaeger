@@ -1,7 +1,7 @@
 import React from 'react';
 import Swiper from 'react-native-web-swiper';
 
-import {Button} from 'components';
+import {Box, Text, Button} from 'components';
 import {palette} from 'constants/theme';
 import OnBoarding1 from 'assets/logos/Onboarding1.svg';
 import OnBoarding2 from 'assets/logos/Onboarding2.svg';
@@ -9,7 +9,6 @@ import OnBoarding3 from 'assets/logos/Onboarding3.svg';
 import OnBoarding4 from 'assets/logos/Onboarding4.svg';
 // import Whiteboard from 'assets/logos/Whiteboard.svg';
 
-import {Box, Text} from 'components';
 const OnBoardContainer = ({children}) => (
   <Box flex={1} alignItems="center" justifyContent="center">
     {children}

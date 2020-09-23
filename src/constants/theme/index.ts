@@ -8,6 +8,8 @@ export const palette = {
 
   black: '#242833',
   white: '#FFFFFF',
+
+  deep: '#8991DC',
 };
 
 const theme = createTheme({
@@ -16,6 +18,7 @@ const theme = createTheme({
     mainDark: palette.blue2,
 
     error: palette.error,
+    deep: palette.deep,
 
     black: palette.black,
     mainBackground: palette.white,
