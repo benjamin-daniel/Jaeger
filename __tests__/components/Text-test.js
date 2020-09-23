@@ -7,6 +7,7 @@ import 'react-native';
 import React from 'react';
 import {Dimensions} from 'react-native';
 import {Container} from '../../App';
+import {Text as RNText, TextProps as RNTextProps} from 'react-native';
 
 import {Text} from 'components';
 import renderer from 'react-test-renderer';
@@ -48,5 +49,17 @@ describe('Text component test', () => {
     await expect(root.findByType(Text).props).toEqual(
       expect.objectContaining({opacity: 0.5}),
     );
+  });
+
+  it('passes default style', async () => {
+    const {root} = renderer.create(
+      <Container>
+        <Text />
+      </Container>,
+    );
+    console.log(root.findByType(RNText).props.style);
+    await expect(root.findByType(RNText).props.style).toEqual([
+      {color: '#242833', fontSize: 18, display: 'flex'},
+    ]);
   });
 });
