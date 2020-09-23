@@ -5,12 +5,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {OnBoarding} from 'screens/OnBoarding';
 import {Login} from 'screens/Login';
+import {Register} from 'screens/Register';
 
 const AuthNav = createStackNavigator();
 
 const AuthStack = () => {
   return (
     <AuthNav.Navigator screenOptions={{headerShown: false}}>
+      <AuthNav.Screen name="Register" component={Register} />
       <AuthNav.Screen name="Login" component={Login} />
       <AuthNav.Screen name="OnBoarding" component={OnBoarding} />
     </AuthNav.Navigator>

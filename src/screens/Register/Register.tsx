@@ -6,20 +6,40 @@ import * as Yup from 'yup';
 
 import {Box, Text, Input, Button} from 'components';
 import Crew from 'assets/img/Crew.png';
+import phone from 'phone';
 import Layout from 'constants/layout';
 
 const {width: wWidth} = Layout.window;
 
-const verifyLoginSchema = Yup.object({
+Yup.addMethod(Yup.string, 'validatePhone', function () {
+  return this.test({
+    name: 'phone',
+    message: 'Phone is not valid',
+    test: (postcode = '') => {
+      // let prefix = '+234';
+      // const value = prefix + postcode;
+      let values = phone(postcode, 'NG');
+      return values.length == 2;
+    },
+  });
+});
+
+const verifyRegisterSchema = Yup.object({
+  name: Yup.string()
+    .required('Required')
+    .min(6, 'Name is too short')
+    .max(30, 'Name is too long'),
   email: Yup.string()
     .trim()
     .email('Invalid Email')
     .required('Boss man this is required!'),
+  mobile: Yup.string().required('Required').validatePhone(),
+  password: Yup.string().required('Required').min(8, 'Minimun length of 8'),
 });
 
-export const Login = ({navigation}) => {
-  const register = () => {
-    navigation.navigate('Register');
+export const Register = ({navigation}) => {
+  const login = () => {
+    navigation.navigate('Login');
   };
   const {
     errors,
@@ -34,22 +54,24 @@ export const Login = ({navigation}) => {
     initialValues: {
       email: '',
       password: '',
+      name: '',
+      mobile: '',
     },
     onSubmit: async (values) => {
       console.log({values});
     },
-    validationSchema: verifyLoginSchema,
+    validationSchema: verifyRegisterSchema,
   });
 
   return (
-    <Box flex={1} paddingHorizontal="m">
+    <Box flex={1}>
       <SafeAreaView style={styles.SafeAreaView}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
           <Box alignItems="center" marginVertical="xl">
             <Image source={Crew} style={styles.image} />
             <Box>
               <Text fontSize={20} textAlign="center">
-                Login to use Jaeger app
+                Register to become a Jaeger
               </Text>
             </Box>
           </Box>
@@ -63,6 +85,23 @@ export const Login = ({navigation}) => {
               value={values.email}
               touched={touched.email}
               error={errors.email}
+            />
+            <Input
+              onChangeText={handleChange('name')}
+              onBlur={handleBlur('name')}
+              value={values.name}
+              touched={touched.name}
+              error={errors.name}
+              placeholder="Name"
+            />
+            <Input
+              onChangeText={handleChange('mobile')}
+              onBlur={handleBlur('mobile')}
+              value={values.mobile}
+              touched={touched.mobile}
+              error={errors.mobile}
+              keyboardType="phone-pad"
+              placeholder="Phone Number"
             />
             <Input
               // ref={secondTextInput}
@@ -81,12 +120,12 @@ export const Login = ({navigation}) => {
                 onPress={handleSubmit}
                 loading={isSubmitting}
                 disabled={isSubmitting}
-                text="Sign In"
+                text="Register"
               />
             </Box>
             <Box alignItems="center" marginVertical="xl">
-              <TouchableOpacity onPress={() => register()}>
-                <Text>Don't have an account yet?</Text>
+              <TouchableOpacity onPress={() => login()}>
+                <Text>Have an account?</Text>
               </TouchableOpacity>
             </Box>
           </Box>
@@ -97,6 +136,9 @@ export const Login = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+  },
   SafeAreaView: {
     flex: 1,
   },
