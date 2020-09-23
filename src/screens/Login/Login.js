@@ -1,16 +1,15 @@
 import React from 'react';
 import {ScrollView, Image, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-
-import {Box, Text, Input, Button} from 'components';
-import Crew from 'assets/img/Crew.png';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
+import {Box, Text, Input, Button} from 'components';
+import Crew from 'assets/img/Crew.png';
 import Layout from 'constants/layout';
 
+
 const {width: wWidth} = Layout.window;
-// console.log({Layout});
 
 const verifyLoginSchema = Yup.object({
   mail: Yup.string()
@@ -44,8 +43,8 @@ export const Login = () => {
     <Box flex={1} paddingHorizontal="m">
       <SafeAreaView style={styles.SafeAreaView}>
         <ScrollView>
-          <Box marginVertical="xl">
-            <Image source={Crew} style={styles.image} width={wWidth} />
+          <Box alignItems="center" marginVertical="xl">
+            <Image source={Crew} style={styles.image} />
             <Box>
               <Text fontSize={20} textAlign="center">
                 Login to use Jaeger app
@@ -95,6 +94,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: wWidth,
+    // width: wWidth,
   },
 });
