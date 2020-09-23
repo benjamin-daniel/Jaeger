@@ -3,6 +3,7 @@ import {ScrollView, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import {Box, Text, Input, Button} from 'components';
 import Crew from 'assets/img/Crew.png';
@@ -66,70 +67,72 @@ export const Register = ({navigation}) => {
   return (
     <Box flex={1}>
       <SafeAreaView style={styles.SafeAreaView}>
-        <ScrollView contentContainerStyle={styles.container}>
-          <Box alignItems="center" marginVertical="xl">
-            <Image source={Crew} style={styles.image} />
-            <Box>
-              <Text fontSize={20} textAlign="center">
-                Register to become a Jaeger
-              </Text>
-            </Box>
-          </Box>
-
-          <Box>
-            <Input
-              placeholder="Email Address"
-              keyboardType="email-address"
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
-              value={values.email}
-              touched={touched.email}
-              error={errors.email}
-            />
-            <Input
-              onChangeText={handleChange('name')}
-              onBlur={handleBlur('name')}
-              value={values.name}
-              touched={touched.name}
-              error={errors.name}
-              placeholder="Name"
-            />
-            <Input
-              onChangeText={handleChange('mobile')}
-              onBlur={handleBlur('mobile')}
-              value={values.mobile}
-              touched={touched.mobile}
-              error={errors.mobile}
-              keyboardType="phone-pad"
-              placeholder="Phone Number"
-            />
-            <Input
-              // ref={secondTextInput}
-              onChangeText={handleChange('password')}
-              onBlur={handleBlur('password')}
-              value={values.password}
-              touched={touched.password}
-              error={errors.password}
-              placeholder="Password"
-              Icon
-              onSubmitEditing={handleSubmit}
-            />
-
-            <Box marginVertical="xl">
-              <Button
-                onPress={handleSubmit}
-                loading={isSubmitting}
-                disabled={isSubmitting}
-                text="Register"
-              />
-            </Box>
+        <KeyboardAwareScrollView>
+          <ScrollView contentContainerStyle={styles.container}>
             <Box alignItems="center" marginVertical="xl">
-              <TouchableOpacity onPress={() => login()}>
-                <Text>Have an account?</Text>
-              </TouchableOpacity>
+              <Image source={Crew} style={styles.image} />
+              <Box>
+                <Text fontSize={20} textAlign="center">
+                  Register to become a Jaeger
+                </Text>
+              </Box>
             </Box>
-          </Box>
-        </ScrollView>
+
+            <Box>
+              <Input
+                placeholder="Email Address"
+                keyboardType="email-address"
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                value={values.email}
+                touched={touched.email}
+                error={errors.email}
+              />
+              <Input
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+                value={values.name}
+                touched={touched.name}
+                error={errors.name}
+                placeholder="Name"
+              />
+              <Input
+                onChangeText={handleChange('mobile')}
+                onBlur={handleBlur('mobile')}
+                value={values.mobile}
+                touched={touched.mobile}
+                error={errors.mobile}
+                keyboardType="phone-pad"
+                placeholder="Phone Number"
+              />
+              <Input
+                // ref={secondTextInput}
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                value={values.password}
+                touched={touched.password}
+                error={errors.password}
+                placeholder="Password"
+                Icon
+                onSubmitEditing={handleSubmit}
+              />
+
+              <Box marginVertical="xl">
+                <Button
+                  onPress={handleSubmit}
+                  loading={isSubmitting}
+                  disabled={isSubmitting}
+                  text="Register"
+                />
+              </Box>
+              <Box alignItems="center" marginVertical="xl">
+                <TouchableOpacity onPress={() => login()}>
+                  <Text>Have an account?</Text>
+                </TouchableOpacity>
+              </Box>
+            </Box>
+          </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </Box>
   );
