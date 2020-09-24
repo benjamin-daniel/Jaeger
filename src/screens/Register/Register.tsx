@@ -9,6 +9,8 @@ import {Box, Text, Input, Button} from 'components';
 import Crew from 'assets/img/Crew.png';
 import phone from 'phone';
 import Layout from 'constants/layout';
+import {store} from 'navigation/authContent';
+import {wait} from 'utils';
 
 const {width: wWidth} = Layout.window;
 
@@ -42,6 +44,7 @@ export const Register = ({navigation}) => {
   const login = () => {
     navigation.navigate('Login');
   };
+  const {dispatch} = React.useContext(store);
   const {
     errors,
     values,
@@ -60,6 +63,9 @@ export const Register = ({navigation}) => {
     },
     onSubmit: async (values) => {
       console.log({values});
+      await wait(2000);
+
+      dispatch({type: 'SIGN_IN'});
     },
     validationSchema: verifyRegisterSchema,
   });

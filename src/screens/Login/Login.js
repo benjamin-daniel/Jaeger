@@ -8,6 +8,8 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {Box, Text, Input, Button} from 'components';
 import Crew from 'assets/img/Crew.png';
 import Layout from 'constants/layout';
+import {store} from 'navigation/authContent';
+import {wait} from 'utils';
 
 const {width: wWidth} = Layout.window;
 
@@ -19,6 +21,8 @@ const verifyLoginSchema = Yup.object({
 });
 
 export const Login = ({navigation}) => {
+  const {dispatch} = React.useContext(store);
+
   const register = () => {
     navigation.navigate('Register');
   };
@@ -41,6 +45,8 @@ export const Login = ({navigation}) => {
     },
     onSubmit: async (values) => {
       console.log({values});
+      await wait(2000);
+      dispatch({type: 'SIGN_IN'});
     },
     validationSchema: verifyLoginSchema,
   });

@@ -8,12 +8,15 @@ import {Box} from 'components';
 import AppNav from './App.navigation';
 import AuthNav from './Auth.navigation';
 
+import {store} from './authContent';
+
 const ONBOARDED_KEY = 'ONBOARDED_KEY';
 
 const Main = () => {
-  const signedIn = true;
   const [isReady, setIsReady] = React.useState(false);
   const [Onboarded, setOnboarding] = React.useState(false);
+  const {dispatch, state} = React.useContext(store);
+  const signedIn = state.authenticated;
 
   React.useEffect(() => {
     const getState = async () => {

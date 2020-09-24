@@ -1,9 +1,10 @@
 import React from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 
-import {Box, Text} from 'components';
+import {Box, Text, Button} from 'components';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
+import {store} from 'navigation/authContent';
 
 const Operation = ({text, Icon}) => {
   return (
@@ -23,6 +24,9 @@ Operation.defaultProps = {
 };
 
 export const Home = () => {
+  const {dispatch} = React.useContext(store);
+
+  const logout = () => dispatch({type: 'SIGN_OUT'});
   return (
     <Box flex={1}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -57,6 +61,9 @@ export const Home = () => {
               Icon={<Feather name="coffee" size={24} color="black" />}
             />
           </Box>
+        </Box>
+        <Box marginTop="xl">
+          <Button onPress={logout} text="logout" />
         </Box>
       </ScrollView>
     </Box>
