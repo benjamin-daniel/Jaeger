@@ -13,7 +13,7 @@ import {palette} from 'constants/theme';
 import {ErrorText} from 'components';
 import renderer from 'react-test-renderer';
 
-describe('Text component test', () => {
+describe('ErrorText component test', () => {
   it('renders correctly', async () => {
     const tree = await renderer
       .create(
