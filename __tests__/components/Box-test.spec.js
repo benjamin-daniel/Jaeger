@@ -9,18 +9,10 @@ import {Dimensions} from 'react-native';
 import {Container} from '../../App';
 import {View as RNView} from 'react-native';
 
-import {Box} from 'components';
 import renderer from 'react-test-renderer';
 
-jest.mock('react-native/Libraries/Utilities/Dimensions', () => {
-  return {
-    get: () => ({
-      width: 375,
-      height: 667,
-    }),
-    addEventListener: jest.fn(),
-  };
-});
+import {Box} from 'components';
+import {act, fireEvent, render} from 'react-native-testing-library';
 
 describe('Box component test', () => {
   beforeEach(() => {
@@ -28,25 +20,23 @@ describe('Box component test', () => {
   });
 
   it('renders correctly', async () => {
-    const tree = await renderer
-      .create(
-        <Container>
-          <Box>Many</Box>
-        </Container>,
-      )
-      .toJSON();
+    const tree = await render(
+      <Container>
+        <Box>Many</Box>
+      </Container>,
+    ).toJSON();
     await expect(tree).toMatchSnapshot();
   });
 
   it('passes styles based on the given props', async () => {
-    const {root} = renderer.create(
+    const {toJSON, UNSAFE_getAllByType, queryAllBy, ...root} = await render(
       <Container>
         <Box variant="none" opacity={0.5}>
           hey
         </Box>
       </Container>,
     );
-    await expect(root.findByType(Box).props).toEqual(
+    await expect(UNSAFE_getAllByType(Box)[0].props).toEqual(
       expect.objectContaining({opacity: 0.5}),
     );
   });

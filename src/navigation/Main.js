@@ -11,7 +11,7 @@ import AuthNav from './Auth.navigation';
 const ONBOARDED_KEY = 'ONBOARDED_KEY';
 
 const Main = () => {
-  const signedIn = false;
+  const signedIn = true;
   const [isReady, setIsReady] = React.useState(false);
   const [Onboarded, setOnboarding] = React.useState(false);
 
