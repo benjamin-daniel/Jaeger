@@ -42,7 +42,7 @@ export const Login = ({navigation}) => {
     onSubmit: async (values) => {
       console.log({values});
     },
-    // validationSchema: verifyLoginSchema,
+    validationSchema: verifyLoginSchema,
   });
 
   return (
