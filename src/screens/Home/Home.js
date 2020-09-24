@@ -5,6 +5,7 @@ import {Box, Text, Button} from 'components';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import {store} from 'navigation/authContent';
+import {currencyFormat} from 'utils';
 
 const Operation = ({text, Icon}) => {
   return (
@@ -30,18 +31,21 @@ export const Home = () => {
   return (
     <Box flex={1}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Box justifyContent="space-between" flexDirection="row">
+        <Box
+          justifyContent="space-between"
+          flexDirection="row"
+          marginBottom="m">
           <Box>
-            <Text fontSize={20}>Welcome Daniel</Text>
-            <Text fontSize={14}>Vibes and Inshallah</Text>
+            <Text fontSize={26}>Welcome Daniel</Text>
+            <Text fontSize={16}>Vibes and Inshallah</Text>
           </Box>
 
           <Box>
             <Text>Account Balance</Text>
-            <Text textAlign="right">0.00</Text>
+            <Text textAlign="right">{currencyFormat(8923)}</Text>
           </Box>
         </Box>
-        <Box marginTop="xl">
+        <Box marginVertical="xxl">
           <Text>Popular operations</Text>
           <Box
             flexDirection="row"
@@ -62,8 +66,8 @@ export const Home = () => {
             />
           </Box>
         </Box>
-        <Box marginTop="xl">
-          <Button onPress={logout} text="logout" />
+        <Box marginTop="xxl">
+          <Button onPress={logout} color="error" text="Logout" />
         </Box>
       </ScrollView>
     </Box>
@@ -72,6 +76,6 @@ export const Home = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 20,
   },
 });
